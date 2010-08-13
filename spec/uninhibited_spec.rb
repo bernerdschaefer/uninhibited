@@ -33,11 +33,6 @@ describe Uninhibited do
       feature.should_receive(:describe)
       feature.Background("description")
     end
-
-    it "sets the background metadata value" do
-      feature.should_receive(:describe).with("Background:", "description", {:background => true})
-      feature.Background("description")
-    end
   end
 
   describe "#Given" do
@@ -88,7 +83,7 @@ describe Uninhibited do
   context "integration" do
     let(:formatter) { Uninhibited::Formatter.new(nil) }
 
-    subject { `rspec tmp/spec.rb 2>/dev/null` }
+    subject { `rspec tmp/spec.rb` }
     before do
       File.open "tmp/spec.rb", "w" do |f|
         f.write(spec)

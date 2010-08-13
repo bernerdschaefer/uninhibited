@@ -13,13 +13,17 @@ module Uninhibited
     end
 
     def Scenario(*args, &example_group_block)
-      describe("Scenario:", *args, &example_group_block)
+      describe("Scenario:", *args) do
+        instance_eval(&example_group_block) if block_given?
+      end
     end
 
     def Background(*args, &example_group_block)
-      options = args.last.is_a?(Hash) ? args.pop : {}
-      options[:background] = true
-      describe("Background:", *args, options, &example_group_block)
+      describe("Background:", *args) do
+        metadata[:background] = true
+
+        instance_eval(&example_group_block) if block_given?
+      end
     end
 
     %w(Given When Then And But).each do |type|
