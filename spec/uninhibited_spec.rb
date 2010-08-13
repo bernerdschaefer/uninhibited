@@ -16,13 +16,6 @@ describe Uninhibited do
       should_receive(:describe).with("description", &block).and_return(example_group)
       Feature("description", &block)
     end
-
-    it "applies uninhibited features to the example group" do
-      group = example_group
-      group.should_receive(:extend).with(Uninhibited::Feature)
-      should_receive(:describe).and_return(group)
-      Feature("description")
-    end
   end
 
   describe "#Scenario" do
@@ -95,7 +88,7 @@ describe Uninhibited do
   context "integration" do
     let(:formatter) { Uninhibited::Formatter.new(nil) }
 
-    subject { `rspec tmp/spec.rb` }
+    subject { `rspec tmp/spec.rb 2>/dev/null` }
     before do
       File.open "tmp/spec.rb", "w" do |f|
         f.write(spec)

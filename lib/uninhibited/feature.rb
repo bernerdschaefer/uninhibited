@@ -1,6 +1,5 @@
 module Uninhibited
   module Feature
-    extend self
     def uninhibited?
       true
     end
@@ -13,13 +12,31 @@ module Uninhibited
       end
     end
 
+    def Scenario(*args, &example_group_block)
+      describe("Scenario:", *args, &example_group_block)
+    end
+
+    def Background(*args, &example_group_block)
+      options = args.last.is_a?(Hash) ? args.pop : {}
+      options[:background] = true
+      describe("Background:", *args, options, &example_group_block)
+    end
+
+    %w(Given When Then And But).each do |type|
+      module_eval(<<-END_RUBY, __FILE__, __LINE__)
+        def #{type}(desc=nil, options={}, &block)
+          example("#{type} \#{desc}", options, &block)
+        end
+      END_RUBY
+    end
+
     def self.extended(base)
       base.after(:each) do
         if example.instance_variable_get(:@exception)
           if example.example_group.metadata[:background]
-            Uninhibited::Feature.skip_examples_after(self.class.ancestors[1], example)
+            self.class.skip_examples_after(self.class.ancestors[1], example)
           else
-            Uninhibited::Feature.skip_examples_after(self.class, example)
+            self.class.skip_examples_after(self.class, example)
           end
         end
       end
