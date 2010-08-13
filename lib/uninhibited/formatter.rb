@@ -68,7 +68,11 @@ module Uninhibited
       pending_count -= skipped_count
       summary = pluralize(example_count, "example")
       summary << " ("
-      summary << red(pluralize(failure_count, "failure"))
+      if failure_count > 0
+        summary << red(pluralize(failure_count, "failure"))
+      else
+        summary << pluralize(failure_count, "failure")
+      end
       summary << ", " << yellow("#{pending_count} pending") if pending_count > 0
       summary << ", " << cyan("#{skipped_count} skipped") if skipped_count > 0
       summary << ")"

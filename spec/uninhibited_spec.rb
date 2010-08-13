@@ -108,7 +108,7 @@ describe Uninhibited do
       end
 
       it "prints the correct summary" do
-        output = "2 examples (#{formatter.send(:red, "0 failures")})"
+        output = "2 examples (0 failures)"
         should =~ Regexp.new(Regexp.escape(output))
       end
     end
@@ -225,8 +225,7 @@ describe Uninhibited do
         end
 
         it "prints the correct summary" do
-          failures = formatter.send(:red, "0 failures")
-          output = "2 examples (#{failures})"
+          output = "2 examples (0 failures)"
           should =~ Regexp.new(Regexp.escape(output))
         end
       end
