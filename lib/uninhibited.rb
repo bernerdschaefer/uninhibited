@@ -2,23 +2,22 @@ require 'rspec'
 require 'uninhibited/background_metadata'
 require 'uninhibited/feature'
 require 'uninhibited/formatter'
+require 'uninhibited/object_extensions'
 require 'uninhibited/version'
 
-module Rspec::Core::ObjectExtensions
-  def Feature(*args, &example_group_block)
-    describe(*args) do
-      extend Uninhibited::Feature
-      instance_eval(&example_group_block) if block_given?
-    end
+module Uninhibited
+
+  # Set up Uninhibited's required features, and configures RSpec as necessary.
+  def self.setup
+    Object.send(:include, Uninhibited::ObjectExtensions)
+
+    RSpec::Core::Metadata.send(:include, BackgroundMetadata)
+
+    config = RSpec.configuration
+    config.filter[:include_background] = true if config.filter
+    config.formatter = Uninhibited::Formatter
   end
+
 end
 
-class RSpec::Core::Metadata
-  include Uninhibited::BackgroundMetadata
-end
-
-if filter = RSpec.configuration.filter
-  filter[:include_background] = true
-end
-
-RSpec.configuration.formatter = Uninhibited::Formatter
+Uninhibited.setup
