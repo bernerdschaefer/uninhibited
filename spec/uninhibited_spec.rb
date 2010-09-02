@@ -81,6 +81,7 @@ describe Uninhibited do
   end
 
   context "integration" do
+    before(:all) { `mkdir -p tmp` }
     let(:formatter) { Uninhibited::Formatter.new(nil) }
 
     subject { `rspec tmp/spec.rb` }
