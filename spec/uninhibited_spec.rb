@@ -202,7 +202,6 @@ describe Uninhibited do
       end
 
       context "when applying a filter" do
-        subject { `rspec tmp/spec.rb -e 'a successful step'` }
         let(:spec) do
           <<-EOF
           require "spec_helper"
@@ -224,11 +223,24 @@ describe Uninhibited do
           EOF
         end
 
-        it "prints the correct summary" do
-          failures = formatter.send(:red, "0 failures")
-          output = "2 examples (#{failures})"
-          should =~ Regexp.new(Regexp.escape(output))
+        context "with background steps" do
+          subject { `rspec tmp/spec.rb -e 'a successful step'` }
+          it "prints the correct summary" do
+            failures = formatter.send(:red, "0 failures")
+            output = "2 examples (#{failures})"
+            should =~ Regexp.new(Regexp.escape(output))
+          end
         end
+
+        context "with preceding steps" do
+          subject { `rspec tmp/spec.rb -e 'this should be successful'` }
+          it "prints the correct summary" do
+            failures = formatter.send(:red, "0 failures")
+            output = "3 examples (#{failures})"
+            should =~ Regexp.new(Regexp.escape(output))
+          end
+        end
+
       end
 
     end
