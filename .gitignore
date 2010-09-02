@@ -3,6 +3,6 @@
 .yardoc
 Gemfile.lock
 burn
-docs/build
+docs
 pkg
 tags
