@@ -51,40 +51,31 @@ Unhibited gives painless Cucumber-style syntax for RSpec integration tests.</p>
 <pre class="code"><span class='require identifier id'>require</span> <span class='string val'>&quot;spec_helper&quot;</span>
 
 <span class='Feature constant id'>Feature</span> <span class='string val'>&quot;User creates a vurl&quot;</span> <span class='do do kw'>do</span>
-  <span class='Scenario constant id'>Scenario</span> <span class='string val'>&quot;creating&quot;</span> <span class='do do kw'>do</span>
-    <span class='Given constant id'>Given</span> <span class='string val'>&quot;I am on the home page&quot;</span> <span class='do do kw'>do</span>
-      <span class='visit identifier id'>visit</span> <span class='root_path identifier id'>root_path</span>
-    <span class='end end kw'>end</span>
-
-    <span class='When constant id'>When</span> <span class='string val'>&quot;I submit a valid vurl&quot;</span> <span class='do do kw'>do</span>
-      <span class='fill_in identifier id'>fill_in</span> <span class='string val'>&quot;vurl_url&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:with</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://example.com'</span>
-      <span class='click_button identifier id'>click_button</span> <span class='string val'>'Vurlify!'</span>
-    <span class='end end kw'>end</span>
-
-    <span class='Then constant id'>Then</span> <span class='string val'>&quot;I should be on the vurl stats page&quot;</span> <span class='do do kw'>do</span>
-      <span class='current_url identifier id'>current_url</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='eq op'>==</span> <span class='stats_url identifier id'>stats_url</span><span class='lparen token'>(</span><span class='Vurl constant id'>Vurl</span><span class='dot token'>.</span><span class='last identifier id'>last</span><span class='dot token'>.</span><span class='slug identifier id'>slug</span><span class='rparen token'>)</span>
-    <span class='end end kw'>end</span>
-
-    <span class='And constant id'>And</span> <span class='string val'>&quot;I should see a success message&quot;</span> <span class='do do kw'>do</span>
-      <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='include identifier id'>include</span><span class='lparen token'>(</span><span class='string val'>'Vurl was successfully created'</span><span class='rparen token'>)</span>
-    <span class='end end kw'>end</span>
-
-    <span class='And constant id'>And</span> <span class='string val'>&quot;my vurl was created&quot;</span> <span class='do do kw'>do</span>
-      <span class='Vurl constant id'>Vurl</span><span class='dot token'>.</span><span class='last identifier id'>last</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='eq op'>==</span> <span class='string val'>'http://example.com'</span>
-    <span class='end end kw'>end</span>
+  <span class='Given constant id'>Given</span> <span class='string val'>&quot;I am on the home page&quot;</span> <span class='do do kw'>do</span>
+    <span class='visit identifier id'>visit</span> <span class='root_path identifier id'>root_path</span>
   <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
-</pre>
 
-<p>Uninhibited also allows you to define background steps, which will be run as an
-equivalent to</p>
+  <span class='When constant id'>When</span> <span class='string val'>&quot;I submit a valid vurl&quot;</span> <span class='do do kw'>do</span>
+    <span class='fill_in identifier id'>fill_in</span> <span class='string val'>&quot;vurl_url&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:with</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://example.com'</span>
+    <span class='click_button identifier id'>click_button</span> <span class='string val'>'Vurlify!'</span>
+  <span class='end end kw'>end</span>
 
-<pre class="code"><span class='Feature constant id'>Feature</span> <span class='string val'>&quot;User signs up&quot;</span> <span class='do do kw'>do</span>
+  <span class='Then constant id'>Then</span> <span class='string val'>&quot;I should be on the vurl stats page&quot;</span> <span class='do do kw'>do</span>
+    <span class='current_url identifier id'>current_url</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='eq op'>==</span> <span class='stats_url identifier id'>stats_url</span><span class='lparen token'>(</span><span class='Vurl constant id'>Vurl</span><span class='dot token'>.</span><span class='last identifier id'>last</span><span class='dot token'>.</span><span class='slug identifier id'>slug</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='And constant id'>And</span> <span class='string val'>&quot;I should see a success message&quot;</span> <span class='do do kw'>do</span>
+    <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='include identifier id'>include</span><span class='lparen token'>(</span><span class='string val'>'Vurl was successfully created'</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='And constant id'>And</span> <span class='string val'>&quot;my vurl was created&quot;</span> <span class='do do kw'>do</span>
+    <span class='Vurl constant id'>Vurl</span><span class='dot token'>.</span><span class='last identifier id'>last</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='eq op'>==</span> <span class='string val'>'http://example.com'</span>
+  <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre></div></div>
     
     <div id="footer">
-  Generated on Thu Sep  2 11:16:29 2010 by 
+  Generated on Thu Sep  2 11:53:21 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.0 (ruby-1.8.7).
 </div>
