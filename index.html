@@ -46,38 +46,59 @@
 <p>Inspired by <a href="http://github.com/hashrocket/unencumbered">unencumbered</a>,
 Unhibited gives painless Cucumber-style syntax for RSpec integration tests.</p>
 
+<h2>Sample Feature</h2>
+
 <p>Here's a sample feature in Uninhibited:</p>
 
-<pre class="code"><span class='require identifier id'>require</span> <span class='string val'>&quot;spec_helper&quot;</span>
+<pre class="code"><span class='id require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>spec_helper</span><span class='tstring_end'>&quot;</span></span>
 
-<span class='Feature constant id'>Feature</span> <span class='string val'>&quot;User creates a vurl&quot;</span> <span class='do do kw'>do</span>
-  <span class='Given constant id'>Given</span> <span class='string val'>&quot;I am on the home page&quot;</span> <span class='do do kw'>do</span>
-    <span class='visit identifier id'>visit</span> <span class='root_path identifier id'>root_path</span>
-  <span class='end end kw'>end</span>
+<span class='const'>Feature</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User creates a vurl</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='const'>Given</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I am on the home page</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id visit'>visit</span> <span class='id root_path'>root_path</span>
+  <span class='kw'>end</span>
 
-  <span class='When constant id'>When</span> <span class='string val'>&quot;I submit a valid vurl&quot;</span> <span class='do do kw'>do</span>
-    <span class='fill_in identifier id'>fill_in</span> <span class='string val'>&quot;vurl_url&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:with</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'http://example.com'</span>
-    <span class='click_button identifier id'>click_button</span> <span class='string val'>'Vurlify!'</span>
-  <span class='end end kw'>end</span>
+  <span class='const'>When</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I submit a valid vurl</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id fill_in'>fill_in</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>vurl_url</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span>
+    <span class='id click_button'>click_button</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Vurlify!</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
 
-  <span class='Then constant id'>Then</span> <span class='string val'>&quot;I should be on the vurl stats page&quot;</span> <span class='do do kw'>do</span>
-    <span class='current_url identifier id'>current_url</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='eq op'>==</span> <span class='stats_url identifier id'>stats_url</span><span class='lparen token'>(</span><span class='Vurl constant id'>Vurl</span><span class='dot token'>.</span><span class='last identifier id'>last</span><span class='dot token'>.</span><span class='slug identifier id'>slug</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span>
+  <span class='const'>Then</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I should be on the vurl stats page</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id current_url'>current_url</span><span class='period'>.</span><span class='id should'>should</span> <span class='op'>==</span> <span class='id stats_url'>stats_url</span><span class='lparen'>(</span><span class='const'>Vurl</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id slug'>slug</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-  <span class='And constant id'>And</span> <span class='string val'>&quot;I should see a success message&quot;</span> <span class='do do kw'>do</span>
-    <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='body identifier id'>body</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='include identifier id'>include</span><span class='lparen token'>(</span><span class='string val'>'Vurl was successfully created'</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span>
+  <span class='const'>And</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I should see a success message</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id response'>response</span><span class='period'>.</span><span class='id body'>body</span><span class='period'>.</span><span class='id should'>should</span> <span class='id include'>include</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Vurl was successfully created</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-  <span class='And constant id'>And</span> <span class='string val'>&quot;my vurl was created&quot;</span> <span class='do do kw'>do</span>
-    <span class='Vurl constant id'>Vurl</span><span class='dot token'>.</span><span class='last identifier id'>last</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='eq op'>==</span> <span class='string val'>'http://example.com'</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
+  <span class='const'>And</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>my vurl was created</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='const'>Vurl</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id url'>url</span><span class='period'>.</span><span class='id should'>should</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>http://example.com</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</pre>
+
+<h2>Failing Steps</h2>
+
+<p>In rspec, when a step fails the rest of the suite continues to run.
+Uninhibited, however, works like cucumber, and will skip steps after a failure.
+You'll see rspec output something like this:</p>
+
+<pre class="code">Feature: User signs in
+  Given I am on the home page
+  When I click Sign in (FAILED - 1)
+  Then I see a sign in form
+
+Failures:
+  1) User signs in When I click Sign in
+     Failure: no such link
+
+Finished in 0.00754 seconds
+3 examples (1 failure, 1 skipped)
 </pre></div></div>
     
     <div id="footer">
-  Generated on Thu Sep  2 11:53:21 2010 by 
+  Generated on Thu Sep  2 13:29:26 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.0 (ruby-1.8.7).
+  0.6.0 (ruby-1.9.1).
 </div>
 
   </body>

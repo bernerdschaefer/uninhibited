@@ -348,12 +348,11 @@ the output stream
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/formatter.rb', line 18</span>
 
-<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='output identifier id'>output</span><span class='rparen token'>)</span>
-  <span class='super super kw'>super</span>
-  <span class='@skipped_examples ivar id'>@skipped_examples</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-  <span class='@skipped_count ivar id'>@skipped_count</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id output'>output</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+  <span class='ivar'>@skipped_examples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@skipped_count</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -398,10 +397,9 @@ the number of skipped examples
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/formatter.rb', line 8</span>
 
-<span class='def def kw'>def</span> <span class='skipped_count identifier id'>skipped_count</span>
-  <span class='@skipped_count ivar id'>@skipped_count</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id skipped_count'>skipped_count</span>
+  <span class='ivar'>@skipped_count</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -441,10 +439,9 @@ the skipped examples
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/formatter.rb', line 12</span>
 
-<span class='def def kw'>def</span> <span class='skipped_examples identifier id'>skipped_examples</span>
-  <span class='@skipped_examples ivar id'>@skipped_examples</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id skipped_examples'>skipped_examples</span>
+  <span class='ivar'>@skipped_examples</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -508,10 +505,9 @@ the output summary
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/formatter.rb', line 44</span>
 
-<span class='def def kw'>def</span> <span class='colorise_summary identifier id'>colorise_summary</span><span class='lparen token'>(</span><span class='summary identifier id'>summary</span><span class='rparen token'>)</span>
-  <span class='summary identifier id'>summary</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id colorise_summary'>colorise_summary</span><span class='lparen'>(</span><span class='id summary'>summary</span><span class='rparen'>)</span>
+  <span class='id summary'>summary</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -588,10 +584,9 @@ colorized text
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/formatter.rb', line 82</span>
 
-<span class='def def kw'>def</span> <span class='cyan identifier id'>cyan</span><span class='lparen token'>(</span><span class='text identifier id'>text</span><span class='rparen token'>)</span>
-  <span class='color identifier id'>color</span><span class='lparen token'>(</span><span class='text identifier id'>text</span><span class='comma token'>,</span> <span class='string val'>&quot;\e[36m&quot;</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id cyan'>cyan</span><span class='lparen'>(</span><span class='id text'>text</span><span class='rparen'>)</span>
+  <span class='id color'>color</span><span class='lparen'>(</span><span class='id text'>text</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\e[36m</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -635,16 +630,15 @@ otherwise it delegates to super.
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/formatter.rb', line 28</span>
 
-<span class='def def kw'>def</span> <span class='example_pending identifier id'>example_pending</span><span class='lparen token'>(</span><span class='example identifier id'>example</span><span class='rparen token'>)</span>
-  <span class='if if kw'>if</span> <span class='example_group identifier id'>example_group</span><span class='dot token'>.</span><span class='metadata identifier id'>metadata</span><span class='lbrack token'>[</span><span class='symbol val'>:feature</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='example identifier id'>example</span><span class='dot token'>.</span><span class='metadata identifier id'>metadata</span><span class='lbrack token'>[</span><span class='symbol val'>:skipped</span><span class='rbrack token'>]</span>
-    <span class='@skipped_examples ivar id'>@skipped_examples</span> <span class='lshft op'>&lt;&lt;</span> <span class='pending_examples identifier id'>pending_examples</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='example identifier id'>example</span><span class='rparen token'>)</span>
-    <span class='@skipped_count ivar id'>@skipped_count</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
-    <span class='output identifier id'>output</span><span class='dot token'>.</span><span class='puts identifier id'>puts</span> <span class='cyan identifier id'>cyan</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{current_indentation}#{example.description}&quot;</span><span class='rparen token'>)</span>
-  <span class='else else kw'>else</span>
-    <span class='super super kw'>super</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id example_pending'>example_pending</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id example_group'>example_group</span><span class='period'>.</span><span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:feature</span><span class='rbracket'>]</span> <span class='op'>&amp;&amp;</span> <span class='id example'>example</span><span class='period'>.</span><span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:skipped</span><span class='rbracket'>]</span>
+    <span class='ivar'>@skipped_examples</span> <span class='op'>&lt;&lt;</span> <span class='id pending_examples'>pending_examples</span><span class='period'>.</span><span class='id delete'>delete</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span>
+    <span class='ivar'>@skipped_count</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='id output'>output</span><span class='period'>.</span><span class='id puts'>puts</span> <span class='id cyan'>cyan</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id current_indentation'>current_indentation</span><span class='rbrace'>}</span><span class='embexpr_beg'>#{</span><span class='id example'>example</span><span class='period'>.</span><span class='id description'>description</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>super</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -663,16 +657,15 @@ otherwise it delegates to super.
 Generates a colorized summary line based on the supplied arguments.
 </p>
 <pre class="code">
-  <span class='formatter identifier id'>formatter</span><span class='dot token'>.</span><span class='summary_line identifier id'>summary_line</span><span class='lparen token'>(</span><span class='integer val'>1</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
-  <span class='comment val'># =&gt; 1 example (0 failures)</span>
-
-  <span class='formatter identifier id'>formatter</span><span class='dot token'>.</span><span class='summary_line identifier id'>summary_line</span><span class='lparen token'>(</span><span class='integer val'>2</span><span class='comma token'>,</span> <span class='integer val'>1</span><span class='comma token'>,</span> <span class='integer val'>1</span><span class='rparen token'>)</span>
-  <span class='comment val'># =&gt; 2 examples (1 failure, 1 pending)</span>
-
-  <span class='formatter identifier id'>formatter</span><span class='dot token'>.</span><span class='skipped_count identifier id'>skipped_count</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
-  <span class='formatter identifier id'>formatter</span><span class='dot token'>.</span><span class='summary_line identifier id'>summary_line</span><span class='lparen token'>(</span><span class='integer val'>2</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='rparen token'>)</span>
-  <span class='comment val'># =&gt; 2 examples (1 failure, 1 skipped)</span>
-</pre>
+  <span class='id formatter'>formatter</span><span class='period'>.</span><span class='id summary_line'>summary_line</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='comment'># =&gt; 1 example (0 failures)
+</span>
+  <span class='id formatter'>formatter</span><span class='period'>.</span><span class='id summary_line'>summary_line</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='comment'># =&gt; 2 examples (1 failure, 1 pending)
+</span>
+  <span class='id formatter'>formatter</span><span class='period'>.</span><span class='id skipped_count'>skipped_count</span> <span class='op'>+=</span> <span class='int'>1</span>
+  <span class='id formatter'>formatter</span><span class='period'>.</span><span class='id summary_line'>summary_line</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='comment'># =&gt; 2 examples (1 failure, 1 skipped)</span></pre>
 
 
   </div>
@@ -773,17 +766,16 @@ the formatted summary line
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/formatter.rb', line 67</span>
 
-<span class='def def kw'>def</span> <span class='summary_line identifier id'>summary_line</span><span class='lparen token'>(</span><span class='example_count identifier id'>example_count</span><span class='comma token'>,</span> <span class='failure_count identifier id'>failure_count</span><span class='comma token'>,</span> <span class='pending_count identifier id'>pending_count</span><span class='rparen token'>)</span>
-  <span class='pending_count identifier id'>pending_count</span> <span class='opasgn op'>-=</span> <span class='skipped_count identifier id'>skipped_count</span>
-  <span class='summary identifier id'>summary</span> <span class='assign token'>=</span> <span class='pluralize identifier id'>pluralize</span><span class='lparen token'>(</span><span class='example_count identifier id'>example_count</span><span class='comma token'>,</span> <span class='string val'>&quot;example&quot;</span><span class='rparen token'>)</span>
-  <span class='summary identifier id'>summary</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot; (&quot;</span>
-  <span class='summary identifier id'>summary</span> <span class='lshft op'>&lt;&lt;</span> <span class='red identifier id'>red</span><span class='lparen token'>(</span><span class='pluralize identifier id'>pluralize</span><span class='lparen token'>(</span><span class='failure_count identifier id'>failure_count</span><span class='comma token'>,</span> <span class='string val'>&quot;failure&quot;</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='summary identifier id'>summary</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot;, &quot;</span> <span class='lshft op'>&lt;&lt;</span> <span class='yellow identifier id'>yellow</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{pending_count} pending&quot;</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='pending_count identifier id'>pending_count</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span>
-  <span class='summary identifier id'>summary</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot;, &quot;</span> <span class='lshft op'>&lt;&lt;</span> <span class='cyan identifier id'>cyan</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{skipped_count} skipped&quot;</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='skipped_count identifier id'>skipped_count</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span>
-  <span class='summary identifier id'>summary</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot;)&quot;</span>
-  <span class='summary identifier id'>summary</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id summary_line'>summary_line</span><span class='lparen'>(</span><span class='id example_count'>example_count</span><span class='comma'>,</span> <span class='id failure_count'>failure_count</span><span class='comma'>,</span> <span class='id pending_count'>pending_count</span><span class='rparen'>)</span>
+  <span class='id pending_count'>pending_count</span> <span class='op'>-=</span> <span class='id skipped_count'>skipped_count</span>
+  <span class='id summary'>summary</span> <span class='op'>=</span> <span class='id pluralize'>pluralize</span><span class='lparen'>(</span><span class='id example_count'>example_count</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>example</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id summary'>summary</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> (</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id summary'>summary</span> <span class='op'>&lt;&lt;</span> <span class='id red'>red</span><span class='lparen'>(</span><span class='id pluralize'>pluralize</span><span class='lparen'>(</span><span class='id failure_count'>failure_count</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>failure</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id summary'>summary</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id yellow'>yellow</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id pending_count'>pending_count</span><span class='rbrace'>}</span><span class='tstring_content'> pending</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id pending_count'>pending_count</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='id summary'>summary</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id cyan'>cyan</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id skipped_count'>skipped_count</span><span class='rbrace'>}</span><span class='tstring_content'> skipped</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id skipped_count'>skipped_count</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='id summary'>summary</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id summary'>summary</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -794,9 +786,9 @@ the formatted summary line
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  2 11:53:22 2010 by 
+  Generated on Thu Sep  2 13:29:27 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.0 (ruby-1.8.7).
+  0.6.0 (ruby-1.9.1).
 </div>
 
   </body>

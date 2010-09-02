@@ -309,10 +309,9 @@ Defines a new When example.
 Defines a new And example
 </p>
 <pre class="code">
-  <span class='And constant id'>And</span> <span class='string val'>&quot;I am on the home page&quot;</span> <span class='do do kw'>do</span>
-    <span class='visit identifier id'>visit</span> <span class='root_path identifier id'>root_path</span>
-  <span class='end end kw'>end</span>
-</pre>
+  <span class='const'>And</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I am on the home page</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id visit'>visit</span> <span class='id root_path'>root_path</span>
+  <span class='kw'>end</span></pre>
 
 
   </div>
@@ -391,10 +390,9 @@ the example&#8217;s code
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 115</span>
 
-<span class='def def kw'>def</span> <span class='And constant id'>And</span><span class='lparen token'>(</span><span class='desc identifier id'>desc</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='example identifier id'>example</span><span class='lparen token'>(</span><span class='dstring node'>&quot;And #{desc}&quot;</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='const'>And</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>And </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -413,29 +411,29 @@ the example&#8217;s code
 Defines a new Background group
 </p>
 <pre class="code">
-  <span class='Feature constant id'>Feature</span> <span class='string val'>&quot;Something&quot;</span> <span class='do do kw'>do</span>
-    <span class='Background constant id'>Background</span> <span class='do do kw'>do</span>
-      <span class='Given constant id'>Given</span> <span class='string val'>&quot;I...&quot;</span>
-    <span class='end end kw'>end</span>
-    <span class='Scenario constant id'>Scenario</span> <span class='string val'>&quot;success&quot;</span> <span class='do do kw'>do</span>
-      <span class='When constant id'>When</span> <span class='string val'>&quot;I...&quot;</span>
-    <span class='end end kw'>end</span>
-    <span class='Scenario constant id'>Scenario</span> <span class='string val'>&quot;failure&quot;</span> <span class='do do kw'>do</span>
-      <span class='When constant id'>When</span> <span class='string val'>&quot;I...&quot;</span>
-    <span class='end end kw'>end</span>
-  <span class='end end kw'>end</span>
+  <span class='const'>Feature</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='const'>Background</span> <span class='kw'>do</span>
+      <span class='const'>Given</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I...</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='const'>Scenario</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='const'>When</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I...</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='const'>Scenario</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>failure</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='const'>When</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I...</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
 </pre>
 <p>
 This will be printed like so:
 </p>
 <pre class="code">
-  <span class='Feature constant id'>Feature</span><span class='colon op'>:</span> <span class='User constant id'>User</span> <span class='signs identifier id'>signs</span> <span class='in in kw'>in</span>
-    <span class='Background constant id'>Background</span><span class='colon op'>:</span>
-      <span class='Given constant id'>Given</span> <span class='I constant id'>I</span><span class='dot3 op'>...</span>
-    <span class='Scenario constant id'>Scenario</span><span class='colon op'>:</span> <span class='success identifier id'>success</span>
-      <span class='When constant id'>When</span> <span class='I constant id'>I</span><span class='dot3 op'>...</span>
-    <span class='Scenario constant id'>Scenario</span><span class='colon op'>:</span> <span class='failure identifier id'>failure</span>
-      <span class='When constant id'>When</span> <span class='I constant id'>I</span><span class='dot3 op'>...</span>
+  Feature: User signs in
+    Background:
+      Given I...
+    Scenario: success
+      When I...
+    Scenario: failure
+      When I...
 </pre>
 <p>
 takes.
@@ -501,14 +499,13 @@ the block to be executed within the feature
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 59</span>
 
-<span class='def def kw'>def</span> <span class='Background constant id'>Background</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='example_group_block identifier id'>example_group_block</span><span class='rparen token'>)</span>
-  <span class='describe identifier id'>describe</span><span class='lparen token'>(</span><span class='string val'>&quot;Background:&quot;</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
-    <span class='metadata identifier id'>metadata</span><span class='lbrack token'>[</span><span class='symbol val'>:background</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
+<span class='kw'>def</span> <span class='const'>Background</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span>
+  <span class='id describe'>describe</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Background:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:background</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
 
-    <span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='example_group_block identifier id'>example_group_block</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
-</pre>
+    <span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -527,10 +524,9 @@ the block to be executed within the feature
 Defines a new But example
 </p>
 <pre class="code">
-  <span class='But constant id'>But</span> <span class='string val'>&quot;I am on the home page&quot;</span> <span class='do do kw'>do</span>
-    <span class='visit identifier id'>visit</span> <span class='root_path identifier id'>root_path</span>
-  <span class='end end kw'>end</span>
-</pre>
+  <span class='const'>But</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I am on the home page</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id visit'>visit</span> <span class='id root_path'>root_path</span>
+  <span class='kw'>end</span></pre>
 
 
   </div>
@@ -609,10 +605,9 @@ the example&#8217;s code
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 128</span>
 
-<span class='def def kw'>def</span> <span class='But constant id'>But</span><span class='lparen token'>(</span><span class='desc identifier id'>desc</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='example identifier id'>example</span><span class='lparen token'>(</span><span class='dstring node'>&quot;But #{desc}&quot;</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='const'>But</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>But </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -631,10 +626,9 @@ the example&#8217;s code
 Defines a new Given example
 </p>
 <pre class="code">
-  <span class='Given constant id'>Given</span> <span class='string val'>&quot;I am on the home page&quot;</span> <span class='do do kw'>do</span>
-    <span class='visit identifier id'>visit</span> <span class='root_path identifier id'>root_path</span>
-  <span class='end end kw'>end</span>
-</pre>
+  <span class='const'>Given</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I am on the home page</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id visit'>visit</span> <span class='id root_path'>root_path</span>
+  <span class='kw'>end</span></pre>
 
 
   </div>
@@ -713,10 +707,9 @@ the example&#8217;s code
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 76</span>
 
-<span class='def def kw'>def</span> <span class='Given constant id'>Given</span><span class='lparen token'>(</span><span class='desc identifier id'>desc</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='example identifier id'>example</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Given #{desc}&quot;</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='const'>Given</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Given </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -735,21 +728,21 @@ the example&#8217;s code
 Defines a new Scenario group
 </p>
 <pre class="code">
-  <span class='Feature constant id'>Feature</span> <span class='string val'>&quot;User signs in&quot;</span> <span class='do do kw'>do</span>
-    <span class='Scenario constant id'>Scenario</span> <span class='string val'>&quot;success&quot;</span> <span class='do do kw'>do</span>
-      <span class='Given constant id'>Given</span> <span class='string val'>&quot;I on the login page&quot;</span>
-      <span class='When constant id'>When</span> <span class='string val'>&quot;I fill in my email and password&quot;</span>
-    <span class='end end kw'>end</span>
-  <span class='end end kw'>end</span>
+  <span class='const'>Feature</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User signs in</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='const'>Scenario</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='const'>Given</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I on the login page</span><span class='tstring_end'>&quot;</span></span>
+      <span class='const'>When</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I fill in my email and password</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
 </pre>
 <p>
 This will be printed like so:
 </p>
 <pre class="code">
-  <span class='Feature constant id'>Feature</span><span class='colon op'>:</span> <span class='User constant id'>User</span> <span class='signs identifier id'>signs</span> <span class='in in kw'>in</span>
-    <span class='Scenario constant id'>Scenario</span><span class='colon op'>:</span> <span class='success identifier id'>success</span>
-      <span class='Given constant id'>Given</span> <span class='I constant id'>I</span> <span class='am identifier id'>am</span> <span class='on identifier id'>on</span> <span class='the identifier id'>the</span> <span class='login identifier id'>login</span> <span class='page identifier id'>page</span>
-      <span class='When constant id'>When</span> <span class='I constant id'>I</span> <span class='fill identifier id'>fill</span> <span class='in in kw'>in</span> <span class='my identifier id'>my</span> <span class='email identifier id'>email</span> <span class='and and kw'>and</span> <span class='password identifier id'>password</span>
+  Feature: User signs in
+    Scenario: success
+      Given I am on the login page
+      When I fill in my email and password
 </pre>
 <p>
 takes.
@@ -813,12 +806,11 @@ the block to be executed within the feature
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 26</span>
 
-<span class='def def kw'>def</span> <span class='Scenario constant id'>Scenario</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='example_group_block identifier id'>example_group_block</span><span class='rparen token'>)</span>
-  <span class='describe identifier id'>describe</span><span class='lparen token'>(</span><span class='string val'>&quot;Scenario:&quot;</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span> <span class='do do kw'>do</span>
-    <span class='instance_eval identifier id'>instance_eval</span><span class='lparen token'>(</span><span class='bitand op'>&amp;</span><span class='example_group_block identifier id'>example_group_block</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='const'>Scenario</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span>
+  <span class='id describe'>describe</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Scenario:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -901,14 +893,13 @@ the example to skip after
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 138</span>
 
-<span class='def def kw'>def</span> <span class='skip_examples_after identifier id'>skip_examples_after</span><span class='lparen token'>(</span><span class='example_group identifier id'>example_group</span><span class='comma token'>,</span> <span class='example identifier id'>example</span><span class='rparen token'>)</span>
-  <span class='examples identifier id'>examples</span> <span class='assign token'>=</span> <span class='example_group identifier id'>example_group</span><span class='dot token'>.</span><span class='descendant_filtered_examples identifier id'>descendant_filtered_examples</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span>
-  <span class='examples identifier id'>examples</span><span class='lbrack token'>[</span><span class='examples identifier id'>examples</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='example identifier id'>example</span><span class='rparen token'>)</span><span class='dot2 op'>..</span><span class='integer val'>-1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='e identifier id'>e</span><span class='bitor op'>|</span>
-    <span class='e identifier id'>e</span><span class='dot token'>.</span><span class='metadata identifier id'>metadata</span><span class='lbrack token'>[</span><span class='symbol val'>:pending</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
-    <span class='e identifier id'>e</span><span class='dot token'>.</span><span class='metadata identifier id'>metadata</span><span class='lbrack token'>[</span><span class='symbol val'>:skipped</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='true true kw'>true</span>
-  <span class='end end kw'>end</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id skip_examples_after'>skip_examples_after</span><span class='lparen'>(</span><span class='id example_group'>example_group</span><span class='comma'>,</span> <span class='id example'>example</span><span class='rparen'>)</span>
+  <span class='id examples'>examples</span> <span class='op'>=</span> <span class='id example_group'>example_group</span><span class='period'>.</span><span class='id descendant_filtered_examples'>descendant_filtered_examples</span><span class='period'>.</span><span class='id flatten'>flatten</span>
+  <span class='id examples'>examples</span><span class='lbracket'>[</span><span class='id examples'>examples</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span>
+    <span class='id e'>e</span><span class='period'>.</span><span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:pending</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='id e'>e</span><span class='period'>.</span><span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:skipped</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -927,10 +918,9 @@ the example to skip after
 Defines a new Then example
 </p>
 <pre class="code">
-  <span class='Then constant id'>Then</span> <span class='string val'>&quot;I see a welcome message&quot;</span> <span class='do do kw'>do</span>
-    <span class='page identifier id'>page</span><span class='dot token'>.</span><span class='should identifier id'>should</span> <span class='have_content identifier id'>have_content</span><span class='lparen token'>(</span><span class='string val'>&quot;Welcome!&quot;</span><span class='rparen token'>)</span>
-  <span class='end end kw'>end</span>
-</pre>
+  <span class='const'>Then</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I see a welcome message</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id page'>page</span><span class='period'>.</span><span class='id should'>should</span> <span class='id have_content'>have_content</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Welcome!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span></pre>
 
 
   </div>
@@ -1009,10 +999,9 @@ the example&#8217;s code
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 102</span>
 
-<span class='def def kw'>def</span> <span class='Then constant id'>Then</span><span class='lparen token'>(</span><span class='desc identifier id'>desc</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='example identifier id'>example</span><span class='lparen token'>(</span><span class='dstring node'>&quot;Then #{desc}&quot;</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='const'>Then</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Then </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1031,10 +1020,9 @@ the example&#8217;s code
 Defines a new When example
 </p>
 <pre class="code">
-  <span class='When constant id'>When</span> <span class='string val'>&quot;I click Home&quot;</span> <span class='do do kw'>do</span>
-    <span class='click_link identifier id'>click_link</span> <span class='string val'>&quot;Home&quot;</span>
-  <span class='end end kw'>end</span>
-</pre>
+  <span class='const'>When</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I click Home</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id click_link'>click_link</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Home</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span></pre>
 
 
   </div>
@@ -1113,10 +1101,9 @@ the example&#8217;s code
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 89</span>
 
-<span class='def def kw'>def</span> <span class='When constant id'>When</span><span class='lparen token'>(</span><span class='desc identifier id'>desc</span><span class='assign token'>=</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-  <span class='example identifier id'>example</span><span class='lparen token'>(</span><span class='dstring node'>&quot;When #{desc}&quot;</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='block identifier id'>block</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='const'>When</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+  <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>When </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1127,9 +1114,9 @@ the example&#8217;s code
 </div>
     
     <div id="footer">
-  Generated on Thu Sep  2 11:53:22 2010 by 
+  Generated on Thu Sep  2 13:29:27 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.6.0 (ruby-1.8.7).
+  0.6.0 (ruby-1.9.1).
 </div>
 
   </body>
