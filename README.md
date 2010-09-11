@@ -1,7 +1,7 @@
 # Uninhibited
 
 Inspired by [unencumbered](http://github.com/hashrocket/unencumbered),
-Unhibited gives painless Cucumber-style syntax for RSpec integration tests.
+Uninhibited gives painless Cucumber-style syntax for RSpec integration tests.
 
 ## Sample Feature
 Here's a sample feature in Uninhibited:
