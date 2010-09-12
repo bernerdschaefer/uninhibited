@@ -93,57 +93,10 @@ Failures:
 
 Finished in 0.00754 seconds
 3 examples (1 failure, 1 skipped)
-</pre>
-
-<h2>Background Steps</h2>
-
-<p>Uninhibited also allows you to define background steps, which will be run
-before each scenario in a file:</p>
-
-<pre class="code"><span class='const'>Feature</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User signs up</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-  <span class='const'>Background</span> <span class='kw'>do</span>
-    <span class='const'>Given</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I am on the sign up page</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-      <span class='id visit'>visit</span> <span class='id signup_page'>signup_page</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
-  <span class='const'>Scenario</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-    <span class='const'>When</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I fill in the form and submit it</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-      <span class='id fill_in'>fill_in</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Email</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>account@example.com</span><span class='tstring_end'>&quot;</span></span>
-      <span class='id click_button'>click_button</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Sign up</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-
-    <span class='const'>Then</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I see a success message</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-      <span class='id page'>page</span><span class='period'>.</span><span class='id should'>should</span> <span class='id have_content'>have_content</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your account has been created</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-
-    <span class='const'>And</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I am on the home page</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-      <span class='id current_path'>current_path</span><span class='period'>.</span><span class='id should'>should</span> <span class='op'>==</span> <span class='id root_path'>root_path</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
-  <span class='const'>Scenario</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>failure</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-    <span class='const'>When</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I submit without the required fields</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-      <span class='id click_button'>click_button</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Sign up</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-
-    <span class='const'>Then</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I see an error message</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-      <span class='id page'>page</span><span class='period'>.</span><span class='id should'>should</span> <span class='id have_content'>have_content</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your account could not be created</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span>
-</pre>
-
-<h2>Filtered execution</h2>
-
-<p>Again, like cucumber, Uninhibited is smart when you run a filtered command, such as:
-<code>rspec spec/integration/user_signs_in_spec.rb:18</code> or <code>rspec
-spec/integration/user_signs_in_spec -e "I see a success message"</code>. These will
-run all dependent steps (both preceding steps and background steps) before
-running the requested step.</p></div></div>
+</pre></div></div>
     
     <div id="footer">
-  Generated on Sat Sep 11 15:24:27 2010 by 
+  Generated on Sat Sep 11 23:22:17 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.0 (ruby-1.9.1).
 </div>
