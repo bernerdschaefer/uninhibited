@@ -30,8 +30,9 @@ describe Uninhibited do
   describe "#Background" do
     let(:feature) { Feature() }
     it "delegates to describe" do
-      feature.should_receive(:describe)
-      feature.Background("description")
+      block = proc {}
+      feature.should_receive(:describe).with("Background:", :background => true, &block)
+      feature.Background(&block)
     end
   end
 
