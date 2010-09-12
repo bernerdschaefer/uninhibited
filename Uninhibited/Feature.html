@@ -204,7 +204,7 @@ Defines a new Given example.
   
   
   
-  
+  <span class="private note title">Private</span>
 
   
     <span class="summary_desc"><div class='inline'><p>
@@ -407,12 +407,12 @@ the example&#8217;s code
       <pre class="lines">
 
 
-115
-116
-117</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='const'>And</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>And </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
@@ -516,19 +516,15 @@ the block to be executed within the feature
 60
 61
 62
-63
-64
-65</pre>
+63</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='const'>Background</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span>
-  <span class='id describe'>describe</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Background:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span> <span class='kw'>do</span>
-    <span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:background</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
-
-    <span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
-  <span class='kw'>end</span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='kw'>unless</span> <span class='id args'>args</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+  <span class='id args'>args</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id update'>update</span><span class='lparen'>(</span><span class='symbol'>:background</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id describe'>describe</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Background:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -622,12 +618,12 @@ the example&#8217;s code
       <pre class="lines">
 
 
-128
-129
-130</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='const'>But</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>But </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
@@ -724,12 +720,12 @@ the example&#8217;s code
       <pre class="lines">
 
 
-76
-77
-78</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='const'>Given</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Given </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
@@ -748,7 +744,11 @@ the example&#8217;s code
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
+    <p class="note private">
+  <strong>This method is part of a private API.</strong> 
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>
 If the example failed or got an error, then skip the dependent examples. If
 the failure occurred in a background example group, then skip all examples
 in the feature.
@@ -786,6 +786,7 @@ the current example
       <pre class="lines">
 
 
+150
 151
 152
 153
@@ -793,11 +794,10 @@ the current example
 155
 156
 157
-158
-159</pre>
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 151</span>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id handle_exception'>handle_exception</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id example'>example</span><span class='period'>.</span><span class='id instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='symbol'>:@exception</span><span class='rparen'>)</span>
@@ -905,9 +905,9 @@ the block to be executed within the feature
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='const'>Scenario</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span>
-  <span class='id describe'>describe</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Scenario:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span> <span class='kw'>do</span>
-    <span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id block_given?'>block_given?</span>
-  <span class='kw'>end</span>
+  <span class='id args'>args</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span><span class='rbrace'>}</span> <span class='kw'>unless</span> <span class='id args'>args</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+  <span class='id args'>args</span><span class='period'>.</span><span class='id last'>last</span><span class='period'>.</span><span class='id update'>update</span><span class='lparen'>(</span><span class='symbol'>:scenario</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id describe'>describe</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Scenario:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id example_group_block'>example_group_block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -982,16 +982,16 @@ the example group of example
       <pre class="lines">
 
 
+136
+137
 138
 139
 140
 141
-142
-143
-144</pre>
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id skip_examples_after'>skip_examples_after</span><span class='lparen'>(</span><span class='id example'>example</span><span class='comma'>,</span> <span class='id example_group'>example_group</span> <span class='op'>=</span> <span class='kw'>self</span><span class='rparen'>)</span>
   <span class='id examples'>examples</span> <span class='op'>=</span> <span class='id example_group'>example_group</span><span class='period'>.</span><span class='id descendant_filtered_examples'>descendant_filtered_examples</span><span class='period'>.</span><span class='id flatten'>flatten</span>
@@ -1092,12 +1092,12 @@ the example&#8217;s code
       <pre class="lines">
 
 
-102
-103
-104</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='const'>Then</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Then </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
@@ -1194,12 +1194,12 @@ the example&#8217;s code
       <pre class="lines">
 
 
-89
-90
-91</pre>
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='const'>When</span><span class='lparen'>(</span><span class='id desc'>desc</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
   <span class='id example'>example</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>When </span><span class='embexpr_beg'>#{</span><span class='id desc'>desc</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id options'>options</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id block'>block</span><span class='rparen'>)</span>
@@ -1214,7 +1214,7 @@ the example&#8217;s code
 </div>
     
     <div id="footer">
-  Generated on Sun Sep 12 12:51:57 2010 by 
+  Generated on Sun Sep 12 13:03:19 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.0 (ruby-1.9.1).
 </div>
