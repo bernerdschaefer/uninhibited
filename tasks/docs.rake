@@ -7,7 +7,7 @@ CLEAN.include 'docs'
 
 desc 'Build API documentation'
 task 'docs:api' => ['docs/.git'] do
-  sh("yardoc -o docs -")
+  sh("yardoc --title=Uninhibited -o docs -")
 end
 directory 'docs/'
 
