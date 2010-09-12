@@ -146,6 +146,7 @@ module Uninhibited
     # examples in the feature.
     #
     # @param [Example] example the current example
+    # @api private
     def handle_exception(example)
       if example.instance_variable_get(:@exception)
         if metadata[:background]
