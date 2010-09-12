@@ -131,11 +131,11 @@ module Uninhibited
 
     # Skip examples after the example provided.
     #
-    # @param [ExampleGroup] example_group the example group of example
     # @param [Example] example the example to skip after
+    # @param [ExampleGroup] example_group the example group of example
     #
     # @api private
-    def skip_examples_after(example_group, example)
+    def skip_examples_after(example, example_group = self)
       examples = example_group.descendant_filtered_examples.flatten
       examples[examples.index(example)..-1].each do |e|
         e.metadata[:pending] = true
@@ -143,25 +143,20 @@ module Uninhibited
       end
     end
 
-    private
-
-    # Extends an ExampleGroup with the features required for running
-    # Uninhibited specs.
+    # If the example failed or got an error, then skip the dependent examples.
+    # If the failure occurred in a background example group, then skip all
+    # examples in the feature.
     #
-    # @param [ExampleGroup] base the example group
-    # @api private
-    def self.extended(base)
-      base.after(:each) do
-        if example.instance_variable_get(:@exception)
-          if example.example_group.metadata[:background]
-            self.class.skip_examples_after(self.class.ancestors[1], example)
-          else
-            self.class.skip_examples_after(self.class, example)
-          end
+    # @param [Example] example the current example
+    def handle_exception(example)
+      if example.instance_variable_get(:@exception)
+        if metadata[:background]
+          skip_examples_after(example, ancestors[1])
+        else
+          skip_examples_after(example)
         end
       end
     end
-
   end
 
 end

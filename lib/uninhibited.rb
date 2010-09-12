@@ -16,6 +16,12 @@ module Uninhibited
     config = RSpec.configuration
     config.filter[:include_background] = true if config.filter
     config.formatter = Uninhibited::Formatter
+
+    config.extend Uninhibited::Feature, :feature => true
+
+    config.after(:each, :feature => true) do
+      example.example_group.handle_exception(example)
+    end
   end
 
 end
