@@ -13,7 +13,7 @@ describe Uninhibited do
 
     it "delegates to describe" do
       block = proc {}
-      should_receive(:describe).with("description", &block).and_return(example_group)
+      should_receive(:describe).with("description", :feature => true, &block).and_return(example_group)
       Feature("description", &block)
     end
   end

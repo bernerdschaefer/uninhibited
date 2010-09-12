@@ -151,8 +151,6 @@ module Uninhibited
     # @param [ExampleGroup] base the example group
     # @api private
     def self.extended(base)
-      base.metadata[:feature] = true
-
       base.after(:each) do
         if example.instance_variable_get(:@exception)
           if example.example_group.metadata[:background]

@@ -18,6 +18,8 @@ module Uninhibited
     #
     # @return [Feature] the new example group
     def Feature(*args, &example_group_block)
+      args << {} unless args.last.is_a?(Hash)
+      args.last.update(:feature => true)
       describe(*args) do
         extend Uninhibited::Feature
         instance_eval(&example_group_block) if block_given?
