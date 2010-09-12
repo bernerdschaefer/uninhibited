@@ -22,7 +22,7 @@ describe Uninhibited do
     let(:feature) { Feature() }
     it "delegates to describe" do
       block = proc {}
-      feature.should_receive(:describe).with("Scenario:", "description", &block)
+      feature.should_receive(:describe).with("Scenario:", "description", :scenario => true, &block)
       feature.Scenario("description", &block)
     end
   end

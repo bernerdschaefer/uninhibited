@@ -24,9 +24,9 @@ module Uninhibited
     # takes.
     # @param example_group_block the block to be executed within the feature
     def Scenario(*args, &example_group_block)
-      describe("Scenario:", *args) do
-        instance_eval(&example_group_block) if block_given?
-      end
+      args << {} unless args.last.is_a?(Hash)
+      args.last.update(:scenario => true)
+      describe("Scenario:", *args, &example_group_block)
     end
 
     # Defines a new Background group
