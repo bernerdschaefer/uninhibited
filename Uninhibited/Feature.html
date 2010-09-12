@@ -194,6 +194,30 @@ Defines a new Given example.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#handle_exception-instance_method" title="#handle_exception (instance method)">- (Object) <strong>handle_exception</strong>(example) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+If the example failed or got an error, then skip the dependent examples.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#Scenario-instance_method" title="#Scenario (instance method)">- (Object) <strong>Scenario</strong>(*args, &amp;example_group_block) </a>
     
 
@@ -218,7 +242,7 @@ Defines a new Scenario group.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#skip_examples_after-instance_method" title="#skip_examples_after (instance method)">- (Object) <strong>skip_examples_after</strong>(example_group, example) </a>
+      <a href="#skip_examples_after-instance_method" title="#skip_examples_after (instance method)">- (Object) <strong>skip_examples_after</strong>(example, example_group = self) </a>
     
 
     
@@ -716,6 +740,80 @@ the example&#8217;s code
 </div>
     
       <div class="method_details ">
+  <p class="signature " id="handle_exception-instance_method">
+  
+    - (<tt>Object</tt>) <strong>handle_exception</strong>(example) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+If the example failed or got an error, then skip the dependent examples. If
+the failure occurred in a background example group, then skip all examples
+in the feature.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Example</tt>)</span>
+      
+      
+        <span class='name'>example</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the current example
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id handle_exception'>handle_exception</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id example'>example</span><span class='period'>.</span><span class='id instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='symbol'>:@exception</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:background</span><span class='rbracket'>]</span>
+      <span class='id skip_examples_after'>skip_examples_after</span><span class='lparen'>(</span><span class='id example'>example</span><span class='comma'>,</span> <span class='id ancestors'>ancestors</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id skip_examples_after'>skip_examples_after</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <p class="signature " id="Scenario-instance_method">
   
     - (<tt>Object</tt>) <strong>Scenario</strong>(*args, &amp;example_group_block) 
@@ -819,7 +917,7 @@ the block to be executed within the feature
       <div class="method_details ">
   <p class="signature " id="skip_examples_after-instance_method">
   
-    - (<tt>Object</tt>) <strong>skip_examples_after</strong>(example_group, example) 
+    - (<tt>Object</tt>) <strong>skip_examples_after</strong>(example, example_group = self) 
   
 
   
@@ -842,23 +940,6 @@ Skip examples after the example provided.
   
     <li>
       
-        <span class='type'>(<tt>ExampleGroup</tt>)</span>
-      
-      
-        <span class='name'>example_group</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-the example group of example
-</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
         <span class='type'>(<tt>Example</tt>)</span>
       
       
@@ -869,6 +950,25 @@ the example group of example
         &mdash;
         <div class='inline'><p>
 the example to skip after
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>ExampleGroup</tt>)</span>
+      
+      
+        <span class='name'>example_group</span>
+      
+      
+        <em class="default">(defaults to: <tt>self</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the example group of example
 </p>
 </div>
       
@@ -893,7 +993,7 @@ the example to skip after
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited/feature.rb', line 138</span>
 
-<span class='kw'>def</span> <span class='id skip_examples_after'>skip_examples_after</span><span class='lparen'>(</span><span class='id example_group'>example_group</span><span class='comma'>,</span> <span class='id example'>example</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id skip_examples_after'>skip_examples_after</span><span class='lparen'>(</span><span class='id example'>example</span><span class='comma'>,</span> <span class='id example_group'>example_group</span> <span class='op'>=</span> <span class='kw'>self</span><span class='rparen'>)</span>
   <span class='id examples'>examples</span> <span class='op'>=</span> <span class='id example_group'>example_group</span><span class='period'>.</span><span class='id descendant_filtered_examples'>descendant_filtered_examples</span><span class='period'>.</span><span class='id flatten'>flatten</span>
   <span class='id examples'>examples</span><span class='lbracket'>[</span><span class='id examples'>examples</span><span class='period'>.</span><span class='id index'>index</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id e'>e</span><span class='op'>|</span>
     <span class='id e'>e</span><span class='period'>.</span><span class='id metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:pending</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -1114,7 +1214,7 @@ the example&#8217;s code
 </div>
     
     <div id="footer">
-  Generated on Sat Sep 11 23:22:17 2010 by 
+  Generated on Sun Sep 12 12:51:57 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.0 (ruby-1.9.1).
 </div>

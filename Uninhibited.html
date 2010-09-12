@@ -168,7 +168,13 @@ necessary.
 16
 17
 18
-19</pre>
+19
+20
+21
+22
+23
+24
+25</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/uninhibited.rb', line 11</span>
@@ -181,6 +187,12 @@ necessary.
   <span class='id config'>config</span> <span class='op'>=</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id configuration'>configuration</span>
   <span class='id config'>config</span><span class='period'>.</span><span class='id filter'>filter</span><span class='lbracket'>[</span><span class='symbol'>:include_background</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id config'>config</span><span class='period'>.</span><span class='id filter'>filter</span>
   <span class='id config'>config</span><span class='period'>.</span><span class='id formatter'>formatter</span> <span class='op'>=</span> <span class='const'>Uninhibited</span><span class='op'>::</span><span class='const'>Formatter</span>
+
+  <span class='id config'>config</span><span class='period'>.</span><span class='id extend'>extend</span> <span class='const'>Uninhibited</span><span class='op'>::</span><span class='const'>Feature</span><span class='comma'>,</span> <span class='symbol'>:feature</span> <span class='op'>=&gt;</span> <span class='kw'>true</span>
+
+  <span class='id config'>config</span><span class='period'>.</span><span class='id after'>after</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='comma'>,</span> <span class='symbol'>:feature</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id example'>example</span><span class='period'>.</span><span class='id example_group'>example_group</span><span class='period'>.</span><span class='id handle_exception'>handle_exception</span><span class='lparen'>(</span><span class='id example'>example</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -192,7 +204,7 @@ necessary.
 </div>
     
     <div id="footer">
-  Generated on Sat Sep 11 23:22:17 2010 by 
+  Generated on Sun Sep 12 12:51:57 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.0 (ruby-1.9.1).
 </div>
