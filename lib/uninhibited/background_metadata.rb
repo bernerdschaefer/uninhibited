@@ -5,11 +5,11 @@ module Uninhibited
 
     # When running a filtered set of steps, we still want to run the background
     # steps, so we need a custom method for handling this case.
-    def all_apply_or_background?(filters)
+    def all_apply_or_background?(predicate, filters)
       if filters[:include_background] && self[:background]
         true
       else
-        rspec_all_apply?(filters.reject { |k,| k == :include_background })
+        rspec_all_apply?(predicate, filters.reject { |k,| k == :include_background })
       end
     end
 
@@ -19,8 +19,8 @@ module Uninhibited
     # @api private
     def self.included(base)
       base.class_eval <<-RUBY
-        alias rspec_all_apply? all_apply?
-        alias all_apply? all_apply_or_background?
+        alias rspec_all_apply? apply?
+        alias apply? all_apply_or_background?
       RUBY
     end
 
