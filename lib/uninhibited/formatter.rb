@@ -1,3 +1,5 @@
+require 'rspec/core/formatters/documentation_formatter'
+
 module Uninhibited
 
   # Custom formatter for displaying the results of a feature.

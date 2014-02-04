@@ -15,7 +15,10 @@ module Uninhibited
 
     config = RSpec.configuration
     config.filter[:include_background] = true if config.filter
-    config.formatter = Uninhibited::Formatter
+
+    if config.formatter_class == RSpec::Core::Formatters::DocumentationFormatter
+      config.formatter = Uninhibited::Formatter
+    end
 
     config.extend Uninhibited::Feature, :feature => true
 
